@@ -166,6 +166,9 @@ class PHPExcel_Shared_Date
 		$seconds = round($time) - ($hours * 3600) - ($minutes * 60);
 
 		$dateObj = date_create('1-Jan-1970+'.$days.' days');
+		if (false === $dateObj) {
+			return false;
+		}
 		$dateObj->setTime($hours,$minutes,$seconds);
 
 		return $dateObj;

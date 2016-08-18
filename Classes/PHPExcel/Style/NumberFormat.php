@@ -452,6 +452,9 @@ class PHPExcel_Style_NumberFormat extends PHPExcel_Style_Supervisor implements P
 		}
 
 		$dateObj = PHPExcel_Shared_Date::ExcelToPHPObject($value);
+		if (false === $dateObj) {
+			return;
+		}
 		$value = $dateObj->format($format);
 	}
 
